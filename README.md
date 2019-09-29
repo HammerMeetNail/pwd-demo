@@ -45,14 +45,14 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
     * `docker rmi -f $(docker images -a -q)` can be used to force remove all images
 
 ### Building and Tagging Images
-1. `curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/Dockerfile -O`
-2. `docker build -t my-app:v1.0.0 .`
-3. `docker run --rm my-app:v1.0.0`
+1. `curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/ -O`
+2. `docker build -t add:v1.0.0 .`
+3. `docker run --rm add:v1.0.0 1 2`
 
 ### Storing Images
 1. `docker login`
 2. Make not of your [full repository name[(https://cloud.docker.com/repository/list)], ex. `doconno2/public-repo`
-3. `docker tag my-app:v1.0.0 {full repository name}:v1.0.0`
+3. `docker tag add:v1.0.0 {full repository name}:v1.0.0`
     * Replace `{full repository name}` with the full name of your repository
 4. `docker push {full repository name}:v1.0.0`
 
