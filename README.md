@@ -76,33 +76,16 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
         * `w3m` can be closed by hitting `q` key
 5. `docker-compose down`
 
-### Kubernetes
+### Kubernetes via K3s and Docker-Compose
 1. `cd /tmp && curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/docker-compose-k3s.yml -O`
 2. `docker-compose -f docker-compose-k3s.yml up -d`
 3. `curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl`
 4. `chmod +x kubectl && mv kubectl /usr/local/bin`
 5. `kubectl --kubeconfig /tmp/kubeconfig.yaml get nodes`
-
-
-- Basics
-    - Core Commands
-        - Build
-            - Tag
-        - Run
-            - Exec
-        - Push
-            - Login
-    - Persisting Data
-        - Volume
-        - Prune/RM/RMI
-    - Hello World
-        - https://hub.docker.com/r/tutum/hello-world/
-        - docker run -d -p 80:80 tutum/hello-world
-- Docker-compose
-    - docker-compose.yml
-    - Create and run yml
-- Sharing Images
-- Kubernetes
-    - k3s
-    - alias kubectl="docker run --rm -it --network host -v /tmp/k3s:/tmp/k3s -v $(pwd):/mnt --workdir /mnt bitnami/kubectl:latest"
-
+6. `kubectl --kubeconfig /tmp/kubeconfig.yaml create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node`
+7. `kubectl --kubeconfig /tmp/kubeconfig.yaml get po`
+8. `kubectl --kubeconfig kubeconfig.yaml expose deployment hello-node --type=LoadBalancer --port=8080`
+9. `kubectl --kubeconfig /tmp/kubeconfig.yaml get services`
+    * Note the `External-IP` for the `hello-node` LoadBalancer
+10. `curl {external ip address}:8080`
+    * Replace `{external ip address}` with `External-IP` for `hello-node`, ex. `172.20.0.2`
