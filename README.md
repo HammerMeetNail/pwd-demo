@@ -44,6 +44,7 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
     * `docker rmi -f $(docker images -a -q)` can be used to force remove all images
 
 ### Building Images
+1. Copy the text in [Dockerfile](Dockerfile)
 
 ### Storing Images
 
