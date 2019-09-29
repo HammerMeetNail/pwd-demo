@@ -7,6 +7,7 @@ This repository contains links and commands for getting started with Docker.
 ## Step-by-Step Instructions
 ### Prerequisites
 1. Create an account at [Docker Hub](https://hub.docker.com)
+    * Do not use a password that has used elsewhere, it will be used on a public server during the demo.
 2. Create a new repository called `public-repo` at [Docker Hub](https://cloud.docker.com/repository/create)
 3. Login to [Play With Docker](https://training.play-with-docker.com/ops-s1-hello/)
     * The terminal should appear within 10 seconds of logging in. If it doesn't, refresh the page until a prompt appears. 
@@ -43,12 +44,28 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
 2. `docker rmi tutum/hello-world:latest`
     * `docker rmi -f $(docker images -a -q)` can be used to force remove all images
 
-### Building Images
-1. Copy the text in [Dockerfile](Dockerfile)
+### Building and Tagging Images
+1. `curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/Dockerfile -O`
+2. `docker build -t my-app:v1.0.0 .`
+3. `docker run --rm my-app:v1.0.0`
 
 ### Storing Images
+1. `docker login`
+2. Make not of your [full repository name[(https://cloud.docker.com/repository/list)], ex. `doconno2/public-repo`
+3. `docker tag my-app:v1.0.0 {full repository name}:v1.0.0`
+    * Replace `{full repository name}` with the full name of your repository
+4. `docker push {full repository name}:v1.0.0`
+
+### Persisting Data
+1. `docker volume create temp`
+2. `docker volume ls`
+3. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'echo "hello world" >> /temp/hello.txt'`
+4. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
+5. `docker volume rm temp`
+6. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
 
 ### Clean Up
+1. `docker system prune`
 
 ### Docker-Compose
 
