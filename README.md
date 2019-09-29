@@ -77,7 +77,12 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
 5. `docker-compose down`
 
 ### Kubernetes
-1. `cd /tmp && curl 
+1. `cd /tmp && curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/docker-compose-k3s.yml -O`
+2. `docker-compose -f docker-compose-k3s.yml up -d`
+3. `curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl`
+4. `chmod +x kubectl && mv kubectl /usr/local/bin`
+5. `kubectl --kubeconfig /tmp/kubeconfig.yaml get nodes`
+
 
 - Basics
     - Core Commands
