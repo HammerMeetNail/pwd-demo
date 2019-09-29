@@ -68,8 +68,16 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
 1. `docker system prune`
 
 ### Docker-Compose
+1. `docker-compose version`
+2. `curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/docker-compose.yml -O`
+3. `docker-compose up -d`
+4. `curl localhost`
+    * `w3m localhost`
+        * `w3m` can be closed by hitting `q` key
+5. `docker-compose down`
 
 ### Kubernetes
+1. `cd /tmp && curl 
 
 - Basics
     - Core Commands
