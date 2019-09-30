@@ -15,7 +15,7 @@ This repository contains links and commands for getting started with Docker.
     * `apk update && apk add w3m`
 
 ### How to Copy and Paste in PWD Terminal
-Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windows, use Shift-Insert `Shift + Insert` instead of Control-V, `CTRL + v`.
+Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Command-V, `⌘ + v`. On Windows, use Control-Insert, `CTRL + Insert` instead of Control-C, `CTRL + c` and use Shift-Insert `Shift + Insert` instead of Control-V, `CTRL + v`.
 
 ### Making Sure Docker is Installed
 1. `docker version`
@@ -48,6 +48,23 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
 1. `curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/ -O`
 2. `docker build -t add:v1.0.0 .`
 3. `docker run --rm add:v1.0.0 1 2`
+
+### Entering Containers
+1. `docker run -it alpine:3.9 sh`
+    * Leave the container by typing `exit` to end the shell session
+2. `docker run -it --entrypoint sh add:v1.0.0`
+    * Browse around the container using common commands like `cd`, `ls`, `cat`
+    * We can see the contents of our python app by running `cat /app/app.py`
+    * Leave the container by typing `exit` to end the shell session
+
+### Using Python in a Container
+1. `docker run -it python:alpine sh`
+    * The container has a full installation of `python3` and `pip3`
+    * Install python packages uses `pip3`, ex. `pip3 install requests`
+    * Start the interpreter using `python`
+        * View the Zen of Python with `import this`
+        * Import requests using `import requests`
+    * Quit the interpreter using `quit()`
 
 ### Storing Images
 1. `docker login`
