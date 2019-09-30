@@ -1,6 +1,9 @@
 # pwd-demo
 This repository contains links and commands for getting started with Docker.
 
+# Install Docker
+Everything below should be runnable in PWD, but if PWD is unavailable Docker can be [installed manually](https://hub.docker.com/?overlay=onboarding). 
+
 ## Play With Docker
 [Play With Docker](https://training.play-with-docker.com/about/) is an instructional website affiliated with [Docker](https://www.docker.com/). It provides an interactive and online terminal for getting started with Docker. 
 
