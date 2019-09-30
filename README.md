@@ -45,9 +45,10 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
     * `docker rmi -f $(docker images -a -q)` can be used to force remove all images
 
 ### Building and Tagging Images
-1. `curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/ -O`
-2. `docker build -t add:v1.0.0 .`
-3. `docker run --rm add:v1.0.0 1 2`
+1. `git clone https://github.com/HammerMeetNail/pwd-demo.git`
+2. `cd pwd-demo`
+3. `docker build -t add:v1.0.0 .`
+4. `docker run --rm add:v1.0.0 1 2`
 
 ### Entering Containers
 1. `docker run -it alpine:3.9 sh`
@@ -59,18 +60,20 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 
 ### Using Python in a Container
 1. `docker run -it python:alpine sh`
+2. `pip3 install requests`
     * The container has a full installation of `python3` and `pip3`
     * Install python packages uses `pip3`, ex. `pip3 install requests`
-    * Start the interpreter using `python`
-        * View the Zen of Python with `import this`
-        * Import requests using `import requests`
-    * Quit the interpreter using `quit()`
+3. Start the interpreter using `python`
+    * View the Zen of Python with `import this`
+    * Import requests using `import requests`
+4. Quit the interpreter using `quit()`
 
 ### Storing Images
 1. `docker login`
-2. Make not of your [full repository name[(https://cloud.docker.com/repository/list)], ex. `doconno2/public-repo`
+2. Make not of your [full repository name](https://cloud.docker.com/repository/list), ex. `doconno2/public-repo`
 3. `docker tag add:v1.0.0 {full repository name}:v1.0.0`
     * Replace `{full repository name}` with the full name of your repository
+    * Example: `docker tag add:v1.0.0 doconno2/public-repo:v1.0.0`
 4. `docker push {full repository name}:v1.0.0`
 
 ### Persisting Data
