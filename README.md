@@ -1,9 +1,6 @@
 # pwd-demo
 This repository contains links and commands for getting started with Docker.
 
-# Install Docker
-Everything below should be runnable in PWD, but if PWD is unavailable Docker can be [installed manually](https://hub.docker.com/?overlay=onboarding). 
-
 ## Play With Docker
 [Play With Docker](https://training.play-with-docker.com/about/) is an instructional website affiliated with [Docker](https://www.docker.com/). It provides an interactive and online terminal for getting started with Docker. 
 
@@ -92,3 +89,11 @@ Copying and pasting works natively on MacOS using Command-V, `⌘ + v`. On Windo
     * Note the `External-IP` for the `hello-node` LoadBalancer
 10. `curl {external ip address}:8080`
     * Replace `{external ip address}` with `External-IP` for `hello-node`, ex. `172.20.0.2`
+
+## Install Docker
+Everything above should be runnable in Play-With-Docker, but if Play-With-Docker is unavailable Docker can be [installed manually](https://hub.docker.com/?overlay=onboarding). 
+
+## Resources
+
+
+## Credits
