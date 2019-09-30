@@ -80,9 +80,10 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 1. `docker volume create temp`
 2. `docker volume ls`
 3. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'echo "hello world" >> /temp/hello.txt'`
-4. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
-5. `docker volume rm temp`
-6. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
+4. `docker ps -a`
+5. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
+6. `docker volume rm temp`
+7. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
 
 ### Clean Up
 1. `docker system prune`
