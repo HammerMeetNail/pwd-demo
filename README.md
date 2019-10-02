@@ -123,7 +123,7 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 Everything above should be runnable in Play-With-Docker, but if Play-With-Docker is unavailable Docker can be [installed manually](https://hub.docker.com/?overlay=onboarding). 
 
 ## Resources
-[Play With Docker](https://training.play-with-docker.com)
-[Play With Kubernetes](https://training.play-with-kubernetes.com/)
-[K3s](https://github.com/rancher/k3s)
-[Katacoda](https://www.katacoda.com/)
+1. [Play With Docker](https://training.play-with-docker.com)
+2. [Play With Kubernetes](https://training.play-with-kubernetes.com/)
+3. [K3s](https://github.com/rancher/k3s)
+4. [Katacoda](https://www.katacoda.com/)
