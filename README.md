@@ -102,7 +102,7 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 5. `curl localhost`
     * `w3m localhost`
         * `w3m` can be closed by hitting `q` key
-6. `docker-compose logs cowsay`
+6. `docker-compose logs cowsay-hello-world`
 7. `docker-compose down`
 
 ### Kubernetes via K3s and Docker-Compose
