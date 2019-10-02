@@ -4,3 +4,7 @@ services:
     image: tutum/hello-world
     ports:
       - 80:80
+  cowsay:
+    image: grycap/cowsay
+    entrypoint: "/usr/games/cowsay"
+    command: "Hello World"

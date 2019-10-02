@@ -22,7 +22,9 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 
 ### Running Containers
 1. `docker run hello-world`
-2. `docker run -d -p 80:80 --name hello-world tutum/hello-world`
+2. `docker pull grycap/cowsay`
+3. `docker run --name cowsay grycap/cowsay "/usr/games/cowsay" "Hello World"`
+4. `docker run -d -p 80:80 --name hello-world tutum/hello-world`
     * `curl localhost`
     * `w3m localhost`
         * `w3m` can be closed by hitting `q` key
@@ -47,8 +49,10 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 ### Building and Tagging Images
 1. `git clone https://github.com/HammerMeetNail/pwd-demo.git`
 2. `cd pwd-demo`
-3. `docker build -t add:v1.0.0 .`
-4. `docker run --rm add:v1.0.0 1 2`
+3. `cat Dockerfile`
+4. `cat app.py`
+5. `docker build -t add:v1.0.0 .`
+6. `docker run --rm add:v1.0.0 1 2`
 
 ### Entering Containers
 1. `docker run -it alpine:3.9 sh`
@@ -67,6 +71,7 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
     * View the Zen of Python with `import this`
     * Import requests using `import requests`
 4. Quit the interpreter using `quit()`
+5. `exit`
 
 ### Storing Images
 1. `docker login`
@@ -80,10 +85,11 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 1. `docker volume create temp`
 2. `docker volume ls`
 3. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'echo "hello world" >> /temp/hello.txt'`
-4. `docker ps -a`
-5. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
-6. `docker volume rm temp`
-7. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
+4. `docker rm -f $(docker ps -a -q)`
+5. `docker ps -a`
+6. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
+7. `docker volume rm temp`
+8. `docker run --rm -it -v temp:/temp alpine:3.9 sh -c 'cat /temp/hello.txt'`
 
 ### Clean Up
 1. `docker system prune`
@@ -91,11 +97,13 @@ Copying and pasting works natively on MacOS using Command-C, `⌘ + c` and Comma
 ### Docker-Compose
 1. `docker-compose version`
 2. `curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/docker-compose.yml -O`
-3. `docker-compose up -d`
-4. `curl localhost`
+3. `cat docker-compose.yml`
+4. `docker-compose up -d`
+5. `curl localhost`
     * `w3m localhost`
         * `w3m` can be closed by hitting `q` key
-5. `docker-compose down`
+6. `docker-compose logs cowsay`
+7. `docker-compose down`
 
 ### Kubernetes via K3s and Docker-Compose
 1. `cd /tmp && curl https://raw.githubusercontent.com/HammerMeetNail/pwd-demo/master/docker-compose-k3s.yml -O`
